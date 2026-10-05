@@ -1,2 +1,7 @@
-<a routerLink="/home">Home</a>
-<a routerLink="/list">List Conferances</a>
+<nav>
+  <!-- routerLink + routerLinkActive -->
+  <a routerLink="/home" routerLinkActive="active">Accueil</a>
+
+  <!-- [routerLink] dynamique + isActive() -->
+  <a [routerLink]="route" [class.active]="isListActive()">{{ routeName }}</a>
+</nav>

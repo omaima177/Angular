@@ -3,11 +3,15 @@ import { Home } from './home/home';
 import { ConferanceList } from './conferance-list/conferance-list';
 
 export const routes: Routes = [
-
-
-{path:'home',component:Home},
-{path:'list',component:ConferanceList},
-
-{path:'',redirectTo:'home',pathMatch:'full'},   
-
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    component: Home,
+    data: { title: 'Accueil' },
+  },
+  {
+    path: 'list',
+    component: ConferanceList,
+    data: { title: 'Liste des conférences' },
+  },
 ];
