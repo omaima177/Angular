@@ -1,0 +1,10 @@
+<div class="box">
+  @if (conference(); as c) {
+    <h2>✅ Inscription réussie !</h2>
+    <p>Vous êtes inscrit à la conférence <strong>{{ c.name }}</strong>.</p>
+    <p>📅 {{ c.date }} - 📍 {{ c.place }}</p>
+  } @else {
+    <h2>Conférence introuvable</h2>
+  }
+  <a routerLink="/list">← Retour à la liste</a>
+</div>

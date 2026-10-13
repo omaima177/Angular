@@ -1,5 +1,5 @@
 import { Component, computed, inject, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Conferance } from '../services/conferance';
 
 @Component({
@@ -10,10 +10,16 @@ import { Conferance } from '../services/conferance';
 })
 export class ConferanceDetails {
   private conferanceService = inject(Conferance);
+  private router = inject(Router);
 
   id = input.required<string>();
 
   conference = computed(() =>
     this.conferanceService.getById(Number(this.id()))
   );
+
+  sInscrire() {
+    // ici on pourrait enregistrer l'inscription (traitement métier)
+    this.router.navigate(['/confirmation', this.id()]);
+  }
 }

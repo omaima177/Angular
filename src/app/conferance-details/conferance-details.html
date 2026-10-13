@@ -1,9 +1,15 @@
 @if (conference(); as c) {
-  <h2>{{ c.name }}</h2>
-  <p><strong>Date :</strong> {{ c.date }}</p>
-  <p><strong>Lieu :</strong> {{ c.place }}</p>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="conférence">
+    <div class="card-body">
+      <h2>{{ c.name }}</h2>
+      <p><strong>Date :</strong> {{ c.date }}</p>
+      <p><strong>Lieu :</strong> {{ c.place }}</p>
+      <button class="btn" (click)="sInscrire()">S'inscrire</button>
+      <a routerLink="/list" class="btn">← Retour à la liste</a>
+    </div>
+  </div>
 } @else {
   <p>Conférence introuvable.</p>
+  <a routerLink="/list">← Retour à la liste</a>
 }
-
-<a routerLink="/list">← Retour à la liste</a>
