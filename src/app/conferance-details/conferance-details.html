@@ -1,2 +1,9 @@
-<h2>Conference Details</h2>
-{{id()}}
+@if (conference(); as c) {
+  <h2>{{ c.name }}</h2>
+  <p><strong>Date :</strong> {{ c.date }}</p>
+  <p><strong>Lieu :</strong> {{ c.place }}</p>
+} @else {
+  <p>Conférence introuvable.</p>
+}
+
+<a routerLink="/list">← Retour à la liste</a>
