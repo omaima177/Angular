@@ -4,4 +4,7 @@
 
   <!-- [routerLink] dynamique + isActive() -->
   <a [routerLink]="route" [class.active]="isListActive()">{{ routeName }}</a>
+
+  <!-- Lien vers la zone admin (lazy loading) -->
+  <a routerLink="/admin" routerLinkActive="active">Admin</a>
 </nav>

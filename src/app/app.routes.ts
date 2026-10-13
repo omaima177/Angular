@@ -1,19 +1,37 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
-import { ConferanceList } from './conferance-list/conferance-list';
-import { NotFound } from './not-found/not-found';
-import { ConferanceDetails } from './conferance-details/conferance-details';
-import { Confirmation } from './confirmation/confirmation';
 
 export const routes: Routes = [
-
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-  { path: 'details/:id', component: ConferanceDetails },
+  // Fonctionnalités à page unique : loadComponent
+  {
+    path: 'home',
+    loadComponent: () => import('./home/home').then(m => m.Home),
+  },
+  {
+    path: 'list',
+    loadComponent: () =>
+      import('./conferance-list/conferance-list').then(m => m.ConferanceList),
+  },
+  {
+    path: 'details/:id',
+    loadComponent: () =>
+      import('./conferance-details/conferance-details').then(m => m.ConferanceDetails),
+  },
+  {
+    path: 'confirmation/:id',
+    loadComponent: () =>
+      import('./confirmation/confirmation').then(m => m.Confirmation),
+  },
 
-  { path: 'confirmation/:id', component: Confirmation },
+  // Fonctionnalité à plusieurs pages : loadChildren
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.routes').then(m => m.ADMIN_ROUTES),
+  },
 
-  { path: 'home', component: Home },
-  { path: 'list', component: ConferanceList },
-  { path: '**', component: NotFound },
+  {
+    path: '**',
+    loadComponent: () => import('./not-found/not-found').then(m => m.NotFound),
+  },
 ];
