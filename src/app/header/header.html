@@ -1,0 +1,10 @@
+<nav>
+  <!-- routerLink + routerLinkActive -->
+  <a routerLink="/home" routerLinkActive="active">Accueil</a>
+
+  <!-- [routerLink] dynamique + isActive() -->
+  <a [routerLink]="route" [class.active]="isListActive()">{{ routeName }}</a>
+
+  <!-- lien vers le formulaire -->
+  <a routerLink="/user-forum" routerLinkActive="active">Add User</a>
+</nav>

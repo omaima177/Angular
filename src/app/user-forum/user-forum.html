@@ -1,0 +1,38 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <input type="text" formControlName="username" placeholder="Username">
+    @if (userForm.get('username')?.touched && userForm.get('username')?.errors) {
+      <small>
+        @if (userForm.get('username')?.errors?.['required']) { Username obligatoire }
+        @if (userForm.get('username')?.errors?.['minlength']) { Minimum 3 caractères }
+      </small>
+    }
+  </div>
+
+  <div>
+    <input type="email" formControlName="email" placeholder="Email">
+    @if (userForm.get('email')?.touched && userForm.get('email')?.errors) {
+      <small>
+        @if (userForm.get('email')?.errors?.['required']) { Email obligatoire }
+        @if (userForm.get('email')?.errors?.['pattern']) { Format d'email invalide }
+      </small>
+    }
+  </div>
+
+  <div>
+    <input type="password" formControlName="password" placeholder="Password">
+    @if (userForm.get('password')?.touched && userForm.get('password')?.errors) {
+      <small>
+        @if (userForm.get('password')?.errors?.['required']) { Mot de passe obligatoire }
+        @if (userForm.get('password')?.errors?.['minlength']) { Minimum 6 caractères }
+      </small>
+    }
+  </div>
+
+  <div>
+    <input type="text" formControlName="adresse" placeholder="Adresse">
+  </div>
+
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
