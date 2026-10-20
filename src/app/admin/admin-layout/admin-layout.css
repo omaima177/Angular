@@ -1,0 +1,17 @@
+h2 { padding: 1rem; margin: 0; }
+
+.admin-nav {
+  display: flex;
+  gap: 1rem;
+  padding: 0 1rem 1rem;
+}
+
+.admin-nav a {
+  color: #3b3eca;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.admin-nav a.active {
+  text-decoration: underline;
+}
